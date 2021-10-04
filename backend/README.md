@@ -29,10 +29,7 @@ export PATH="$PATH:$HOME/.deno/bin"
 
 ## How To
 
-The application uses the server framework: **oak** (inspired by [Koa](https://github.com/koajs/koa/))
-
-- https://oakserver.github.io/oak/
-- https://github.com/oakserver/oak
+The application uses the server framework: [Oak](https://github.com/oakserver/oak) (inspired by [Koa](https://github.com/koajs/koa/))
 
 ## Comparison to Node.js
 
