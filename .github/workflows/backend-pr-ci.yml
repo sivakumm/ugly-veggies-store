@@ -17,5 +17,6 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: '~1.14'
-      - name: Lint
-        run: deno lint
+      - name: lint
+        run: |
+          deno lint
