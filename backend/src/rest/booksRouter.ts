@@ -3,7 +3,7 @@ import { books } from "../../data/mockdata.ts";
 
 const SUB_ROUTE = "/books";
 
-const withBooksRoutes = (router: Router) => {
+export const withBooksRoutes = (router: Router) => {
   router.get(SUB_ROUTE, (context) => {
     context.response.body = Array.from(books.values());
   });
@@ -14,5 +14,3 @@ const withBooksRoutes = (router: Router) => {
     }
   });
 };
-
-export default withBooksRoutes;

@@ -19,4 +19,7 @@ jobs:
           deno-version: '~1.14'
       - name: lint
         run: |
-          deno lint
+          deno lint -c deno.config.json
+      - name: check formatting
+        run: |
+          deno fmt -c deno.config.json --check
