@@ -1,0 +1,35 @@
+name: Frontend PR CI
+
+on:
+  pull_request:
+    paths:
+      - 'frontend/**'
+      - '!**.md'
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      # - name: Lint frontend project
+      # run: npm run lint
+
+      - name: Build frontend
+        run: npm run build

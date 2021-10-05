@@ -1,0 +1,22 @@
+name: Backend PR CI
+
+on:
+  pull_request:
+    paths:
+      - 'backend/**'
+      - '!**.md'
+
+jobs:
+  build-backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: '~1.14'
+      - name: lint
+        run: |
+          deno lint
