@@ -35,7 +35,7 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
     EffectsModule.forRoot([ProductsEffects]),
     HttpClientModule,
     StoreModule.forRoot({ products: productReducer }, {})
