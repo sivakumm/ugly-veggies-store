@@ -13,6 +13,10 @@ import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'produkte', component: ProdukteComponent},
+  {path: 'rezepte', component: RezepteComponent},
+  {path: 'abos', component: AbosComponent},
+  {path: 'warenkorb', component: WarenkorbComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
