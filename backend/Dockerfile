@@ -10,13 +10,15 @@ USER deno
 
 # Cache the dependencies as a layer (the following two steps are re-run only when dependencies.ts is modified).
 # Ideally cache dependencies.ts will download and compile _all_ external files used in server.ts.
+COPY deno.config.json .
 COPY dependencies.ts .
-RUN deno cache dependencies.ts
+RUN deno cache -c deno.config.json dependencies.ts
 
 # These steps will be re-run upon each file change in your working directory:
-ADD . .
+COPY data ./data
+COPY src ./src
 
 # Compile the server so that it doesn't need to be compiled each startup/entry.
-RUN deno cache src/server.ts
+RUN deno cache -c deno.config.json src/server.ts
 
-CMD ["run", "--allow-net", "src/server.ts"]
+CMD ["run", "--allow-net=0.0.0.0:8000", "--allow-read", "src/server.ts"]
