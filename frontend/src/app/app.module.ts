@@ -10,6 +10,12 @@ import { WarenkorbComponent } from './warenkorb/warenkorb.component';
 import { ProdukteComponent } from './produkte/produkte.component';
 import { HeaderComponent } from './core/header/header.component';
 import {RouterModule, Routes} from "@angular/router";
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { productReducer } from "./state/products/products.reducer";
+import { ProductsEffects } from "./state/products/products.effects";
+import { HttpClientModule } from "@angular/common/http";
+import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -28,12 +34,17 @@ const routes: Routes = [
     RezepteComponent,
     WarenkorbComponent,
     ProdukteComponent,
-    HeaderComponent
+    HeaderComponent,
+    DisplayProdukteComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    EffectsModule.forRoot([ProductsEffects]),
+    HttpClientModule,
+    StoreModule.forRoot({ products: productReducer }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
