@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from "./state/products/products.reducer";
 import { ProductsEffects } from "./state/products/products.effects";
 import { HttpClientModule } from "@angular/common/http";
+import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from "@angular/common/http";
     HomeComponent,
     RezepteComponent,
     WarenkorbComponent,
-    ProdukteComponent
+    ProdukteComponent,
+    DisplayProdukteComponent
   ],
   imports: [
     AppRoutingModule,
