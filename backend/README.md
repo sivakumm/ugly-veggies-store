@@ -27,11 +27,11 @@ Update the `.zshrc` or `.bashrc`:
 export PATH="$PATH:$HOME/.deno/bin"
 ```
 
-## How To
+## how to
 
 The application uses the server framework: [Oak](https://github.com/oakserver/oak) (inspired by [Koa](https://github.com/koajs/koa/))
 
-## Comparison to Node.js
+## comparison to node.js
 
 - Deno does **not** use `npm`. It uses modules referenced as URLs or file paths.
 - Deno does **not** use `package.json` in its module resolution algorithm.
@@ -42,3 +42,29 @@ The application uses the server framework: [Oak](https://github.com/oakserver/oa
   ```bash
   import * as log from "https://deno.land/std@0.109.0/log/mod.ts";
   ```
+
+## deployment
+
+### docker
+
+#### build
+
+To build the Docker container run the following command: 
+
+```bash
+docker run -d -p 8000:8000 ugly-veggies-backend
+```
+
+#### run 
+
+To run the Docker container run the following command:
+
+```bash
+docker run -d -p 8000:8000 ugly-veggies-backend
+```
+
+The container can be accessed on port 8000.
+
+### bundled
+
+...
