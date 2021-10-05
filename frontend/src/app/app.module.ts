@@ -8,7 +8,13 @@ import { HomeComponent } from './home/home.component';
 import { RezepteComponent } from './rezepte/rezepte.component';
 import { WarenkorbComponent } from './warenkorb/warenkorb.component';
 import { ProdukteComponent } from './produkte/produkte.component';
+import {RouterModule, Routes} from "@angular/router";
 
+const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +26,8 @@ import { ProdukteComponent } from './produkte/produkte.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
