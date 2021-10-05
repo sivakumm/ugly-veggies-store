@@ -9,6 +9,7 @@ import { RezepteComponent } from './rezepte/rezepte.component';
 import { WarenkorbComponent } from './warenkorb/warenkorb.component';
 import { ProdukteComponent } from './produkte/produkte.component';
 import { HeaderComponent } from './core/header/header.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HeaderComponent } from './core/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {faShoppingBasket} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  faShoppingBasket = faShoppingBasket;
 
   constructor() { }
 

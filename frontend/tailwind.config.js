@@ -5,4 +5,7 @@ module.exports = {
       './src/**/*.{html,ts}',
     ]
   },
+  plugins: [
+    require('tailwindcss-children'),
+  ],
 };
