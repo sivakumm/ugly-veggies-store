@@ -1,4 +1,4 @@
-import { Book } from "../types/book.ts";
+import { Book } from "../src/types/book.ts";
 
 export const books = new Map<string, Book>();
 
