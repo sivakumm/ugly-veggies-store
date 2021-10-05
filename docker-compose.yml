@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   backend:
-    image: sivakumm/ugly-veggies-backend:latest
-    container_name: backend
+    image: ghcr.io/sivakumm/ugly-veggies-backend:latest
+    container_name: ugly-veggies-backend
     restart: always
     ports:
       - 8000:8000
