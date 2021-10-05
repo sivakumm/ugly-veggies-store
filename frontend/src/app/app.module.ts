@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { RezepteComponent } from './rezepte/rezepte.component';
 import { WarenkorbComponent } from './warenkorb/warenkorb.component';
 import { ProdukteComponent } from './produkte/produkte.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProdukteComponent } from './produkte/produkte.component';
     HomeComponent,
     RezepteComponent,
     WarenkorbComponent,
-    ProdukteComponent
+    ProdukteComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
