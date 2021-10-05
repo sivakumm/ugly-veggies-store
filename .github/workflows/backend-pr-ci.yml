@@ -23,3 +23,7 @@ jobs:
       - name: check formatting
         run: |
           deno fmt -c deno.config.json --check
+      - name: unit test
+        run: |
+          deno test -c deno.config.json -j --coverage=coverage_profile
+          deno coverage -q --include="^file:.*/src/.*" coverage_profile
