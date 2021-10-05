@@ -16,6 +16,7 @@ import { productReducer } from "./state/products/products.reducer";
 import { ProductsEffects } from "./state/products/products.effects";
 import { HttpClientModule } from "@angular/common/http";
 import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
+import { ProduktComponent } from './produkte/produkt/produkt.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'rezepte', component: RezepteComponent},
   {path: 'abos', component: AbosComponent},
   {path: 'warenkorb', component: WarenkorbComponent},
+  {path: 'produkte/:produktId', component: ProduktComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
@@ -35,7 +37,8 @@ const routes: Routes = [
     WarenkorbComponent,
     ProdukteComponent,
     HeaderComponent,
-    DisplayProdukteComponent
+    DisplayProdukteComponent,
+    ProduktComponent
   ],
   imports: [
     AppRoutingModule,
