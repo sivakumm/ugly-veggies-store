@@ -8,13 +8,18 @@ import { HomeComponent } from './home/home.component';
 import { RezepteComponent } from './rezepte/rezepte.component';
 import { WarenkorbComponent } from './warenkorb/warenkorb.component';
 import { ProdukteComponent } from './produkte/produkte.component';
-import {RouterModule, Routes} from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from "./state/products/products.reducer";
 import { ProductsEffects } from "./state/products/products.effects";
 import { HttpClientModule } from "@angular/common/http";
 import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormatErrorPipe } from './general/pipes/format-error.pipe';
+import { FormErrorComponent } from './general/error/form-error/form-error.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -29,12 +34,18 @@ const routes: Routes = [
     RezepteComponent,
     WarenkorbComponent,
     ProdukteComponent,
-    DisplayProdukteComponent
+    DisplayProdukteComponent,
+    LoginComponent,
+    RegisterComponent,
+    FormatErrorPipe,
+    FormErrorComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     EffectsModule.forRoot([ProductsEffects]),
     HttpClientModule,
