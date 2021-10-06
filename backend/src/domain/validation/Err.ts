@@ -39,28 +39,8 @@ export class ErrImpl<E> implements BaseResult<never, E> {
     return new ErrImpl(val);
   }
 
-  unwrapOr<T2>(val: T2): T2 {
-    return val;
-  }
-
   unwrap(): never {
     throw new Error(`Tried to unwrap Error: ${String(this.val)}\n${this._stack}`);
-  }
-
-  map(_mapper: unknown): Err<E> {
-    return this;
-  }
-
-  andThen(_op: unknown): Err<E> {
-    return this;
-  }
-
-  mapErr<E2>(mapper: (err: E) => E2): Err<E2> {
-    return new Err(mapper(this.val));
-  }
-
-  toString(): string {
-    return `Err(${String(this.val)})`;
   }
 
   get stack(): string | undefined {
