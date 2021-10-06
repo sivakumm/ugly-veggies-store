@@ -34,20 +34,20 @@ export class ProductName
     const validationErrors: DomainValidationError[] = [];
     if (input.name === null || input.name === undefined) {
       validationErrors.push({
-        name: "Name Validation Error",
+        name: "ProductName Validation Error",
         message: "Name does not exist!",
       });
       return Err.wrap(validationErrors);
     }
     if (input.name.length > 30) {
       validationErrors.push({
-        name: "Name Validation Error",
+        name: "ProductName Validation Error",
         message: "Name mustn't be longer than 30 characters.",
       });
     }
     if (input.name.length <= 3) {
       validationErrors.push({
-        name: "Name Validation Error",
+        name: "ProductName Validation Error",
         message: "Name must be at least 3 characters long.",
       });
     }
