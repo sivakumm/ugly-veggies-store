@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {faShoppingBasket, faAlignJustify} from '@fortawesome/free-solid-svg-icons';
+import { Component } from '@angular/core';
+import { faShoppingBasket, faAlignJustify, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,10 @@ import {faShoppingBasket, faAlignJustify} from '@fortawesome/free-solid-svg-icon
 export class HeaderComponent {
   faShoppingBasket = faShoppingBasket;
   faAlignJustify = faAlignJustify;
+  faUserCircle = faUserCircle;
   navbarClosed: boolean = true;
+  showMask: boolean = false;
+  showLogin: boolean = true;
 
   constructor() { }
 
@@ -17,4 +20,11 @@ export class HeaderComponent {
     this.navbarClosed = !this.navbarClosed;
   }
 
+  toggleMask(): void {
+    this.showMask = !this.showMask;
+  }
+
+  toggleRegisterMask(): void {
+    this.showLogin = !this.showLogin;
+  }
 }

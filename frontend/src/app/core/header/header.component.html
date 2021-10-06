@@ -14,7 +14,20 @@
       <ng-container [ngTemplateOutlet]="navbarLinks"></ng-container>
     </div>
   </div>
-  <a routerLink="/warenkorb" class="hover:text-white"><fa-icon [icon]="faShoppingBasket" size="lg"></fa-icon></a>
+  <div class="relative">
+    <a routerLink="/warenkorb" class="hover:text-white"><fa-icon [icon]="faShoppingBasket" size="lg"></fa-icon></a>
+    <a class="ml-4 text-2xl cursor-pointer" (click)="toggleMask()"><fa-icon [icon]="faUserCircle" size="lg"></fa-icon></a>
+    <div *ngIf="showMask" class="login-mask">
+      <div *ngIf="showLogin">
+        <app-login></app-login>
+        <div>No login? <a (click)="toggleRegisterMask()">Register</a></div>
+      </div>
+      <div *ngIf="!showLogin">
+        <app-register></app-register>
+        <div>You have already a login? <a (click)="toggleRegisterMask()">Login</a></div>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <ng-template #navbarLinks>
