@@ -9,10 +9,6 @@ type ProductNameType = string;
 export class ProductName extends DomainObject<ProductNameInput, ProductNameType> {
   private readonly _name: ProductNameType;
 
-  get name(): ProductNameType {
-    return this._name;
-  }
-
   private constructor(input: ProductNameInput) {
     super(input);
     this._name = input.name;
@@ -39,5 +35,9 @@ export class ProductName extends DomainObject<ProductNameInput, ProductNameType>
     } else {
       return true;
     }
+  }
+
+  getPrimitiveValue() {
+    return this._name;
   }
 }
