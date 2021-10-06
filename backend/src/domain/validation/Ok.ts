@@ -32,10 +32,6 @@ export class OkImpl<T> implements BaseResult<T, never> {
     return new OkImpl(val);
   }
 
-  unwrapOr(_val: unknown): T {
-    return this.value;
-  }
-
   unwrap(): T {
     return this.value;
   }

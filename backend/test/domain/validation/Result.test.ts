@@ -23,7 +23,7 @@ Deno.test("[Result]: Err Unwrap -> Error", () => {
   asserts.assertThrows(
     () => err.unwrap(),
     undefined,
-    "Tried to unwrap Error: test",
+    'Tried to unwrap Error: "test"',
   );
 });
 
