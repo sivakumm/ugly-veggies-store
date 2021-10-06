@@ -21,7 +21,7 @@ export class OkImpl<T> implements BaseResult<T, never> {
     };
   }
 
-  constructor(val: T) {
+  private constructor(val: T) {
     if (!(this instanceof OkImpl)) {
       return new OkImpl(val);
     }
@@ -29,6 +29,10 @@ export class OkImpl<T> implements BaseResult<T, never> {
     this.ok = true;
     this.err = false;
     this.val = val;
+  }
+
+  static wrap<U>(val: U): OkImpl<U> {
+    return new OkImpl(val);
   }
 
   unwrapOr(_val: unknown): T {

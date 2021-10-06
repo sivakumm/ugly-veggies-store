@@ -18,7 +18,7 @@ export class ErrImpl<E> implements BaseResult<never, E> {
     };
   }
 
-  constructor(val: E) {
+  private constructor(val: E) {
     if (!(this instanceof ErrImpl)) {
       return new ErrImpl(val);
     }
@@ -33,6 +33,10 @@ export class ErrImpl<E> implements BaseResult<never, E> {
     }
 
     this._stack = stackLines.join("\n");
+  }
+
+  static wrap<U>(val: U): ErrImpl<U> {
+    return new ErrImpl(val);
   }
 
   unwrapOr<T2>(val: T2): T2 {
