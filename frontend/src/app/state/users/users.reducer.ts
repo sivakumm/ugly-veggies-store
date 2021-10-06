@@ -10,7 +10,7 @@ const initialState: Readonly<User> = {
 
 export const userReducer = createReducer(
   initialState,
-  on(registerUserSuccess, (state, { user }) => user),
-  on(loginUserSuccess, (state, { user }) => user),
-  on(logoutUser, () => initialState)
+  on(registerUserSuccess, (state, { user }): User => user),
+  on(loginUserSuccess, (state, { user }): User => user),
+  on(logoutUser, (state, _): User => initialState),
 );
