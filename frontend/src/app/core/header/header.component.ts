@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {faShoppingBasket} from '@fortawesome/free-solid-svg-icons';
+import {faShoppingBasket, faAlignJustify} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,13 @@ import {faShoppingBasket} from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent {
   faShoppingBasket = faShoppingBasket;
+  faAlignJustify = faAlignJustify;
+  navbarClosed: boolean = true;
 
   constructor() { }
+
+  toggleNavbar(): void{
+    this.navbarClosed = !this.navbarClosed;
+  }
 
 }
