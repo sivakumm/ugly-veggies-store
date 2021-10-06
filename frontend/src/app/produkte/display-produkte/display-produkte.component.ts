@@ -21,4 +21,10 @@ export class DisplayProdukteComponent {
   isSelected(product: Product): boolean {
     return product.id === this.selectedId;
   }
+
+  addProduct(product: Product) {
+  }
+
+  removeProduct(product: Product) {
+  }
 }

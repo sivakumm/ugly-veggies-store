@@ -7,10 +7,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr (click)="onSelect(product)" [class.selected]="isSelected(product)" *ngFor="let product of products">
+    <tr *ngFor="let product of products">
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
-      <td>{{ product.imageUrl }}</td>
+      <td (click)="onSelect(product)" [class.selected]="isSelected(product)" >{{ product.imageUrl }}</td>
+      <button (click)="addProduct(product)">+</button>
+      <button (click)="removeProduct(product)">-</button>
     </tr>
   </tbody>
 </table>
