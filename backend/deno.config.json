@@ -11,8 +11,7 @@
       "include": ["src/", "types/", "test/"]
     },
     "rules": {
-      "tags": ["recommended"],
-      "include": ["ban-untagged-todo"]
+      "tags": ["recommended"]
     }
   },
   "fmt": {
