@@ -1,12 +1,12 @@
-import { DomainObject } from "./DomainObject.ts";
-import { ProductId } from "./product/ProductId.ts";
-import { ProductName } from "./product/ProductName.ts";
-import { ProductPrice } from "./product/ProductPrice.ts";
-import { ProductImageUrl } from "./product/ProductImageUrl.ts";
-import { DomainValidationError } from "../types/domain/validation.ts";
-import { Err } from "./validation/Err.ts";
-import { Ok } from "./validation/Ok.ts";
-import { Result } from "./validation/Result.ts";
+import { DomainObject } from "../DomainObject.ts";
+import { ProductId } from "../product/ProductId.ts";
+import { ProductName } from "../product/ProductName.ts";
+import { ProductPrice } from "../product/ProductPrice.ts";
+import { ProductImageUrl } from "../product/ProductImageUrl.ts";
+import { DomainValidationError } from "../../types/domain/validation.ts";
+import { Err } from "../validation/Err.ts";
+import { Ok } from "../validation/Ok.ts";
+import { Result } from "../validation/Result.ts";
 
 export interface ProductInput {
   id: ProductId;

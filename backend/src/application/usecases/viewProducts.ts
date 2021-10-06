@@ -1,11 +1,9 @@
 import { join } from "../../../dependencies.ts";
-import { ProductInput } from "../../types/product.ts";
+import { Product } from "../../domain/product/Product.ts";
 
-// TODO: remove once correct type/class exists
-type TemporaryProductType = ProductInput;
-let products: TemporaryProductType[] = [];
+let products: Product[] = [];
 
-export function viewProducts(): TemporaryProductType[] {
+export function viewProducts(): Product[] {
   if (!products || products.length === 0) {
     const filepath = "./data/products.json";
     const filename = join(Deno.cwd(), filepath);
