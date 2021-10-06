@@ -12,8 +12,5 @@ import {DisplayProdukteComponent} from "./display-produkte/display-produkte.comp
     CommonModule,
     HttpClientModule
   ],
-  exports: [
-    ProdukteComponent
-  ]
 })
 export class ProdukteModule { }
