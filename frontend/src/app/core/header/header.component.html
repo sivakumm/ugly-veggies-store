@@ -1,4 +1,4 @@
-<header class="flex p-5 bg-green-600 text-green-100 items-baseline">
+<nav class="flex p-5 bg-green-600 text-green-100 items-baseline">
   <div class="sm:hidden flex-1">
     <div>
       <button (click)="toggleNavbar()" class="flex items-center px-3 py-1 bg-green-100 rounded text-green-100 hover:bg-white">
@@ -14,12 +14,12 @@
       <ng-container [ngTemplateOutlet]="navbarLinks"></ng-container>
     </div>
   </div>
-  <a class="hover:text-white"><fa-icon [icon]="faShoppingBasket" size="lg"></fa-icon></a>
-</header>
+  <a routerLink="/warenkorb" class="hover:text-white"><fa-icon [icon]="faShoppingBasket" size="lg"></fa-icon></a>
+</nav>
 
 <ng-template #navbarLinks>
-  <a>Home</a>
-  <a>Produkte</a>
-  <a>Rezepte</a>
-  <a>Abos</a>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/produkte">Produkte</a>
+  <a routerLink="/rezepte">Rezepte</a>
+  <a routerLink="/abos">Abos</a>
 </ng-template>

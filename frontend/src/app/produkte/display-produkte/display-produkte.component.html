@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (click)="onSelect(product)" [class.selected]="isSelected(product)" *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.imageUrl }}</td>
+    </tr>
+  </tbody>
+</table>
