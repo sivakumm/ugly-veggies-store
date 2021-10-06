@@ -3,16 +3,14 @@ import { isResult } from "../../../src/domain/validation/Result.ts";
 import { Err } from "../../../src/domain/validation/Err.ts";
 import { Ok } from "../../../src/domain/validation/Ok.ts";
 
-Deno.test("[Result]: Err", () => {
+Deno.test("[Result]: Err -> success === false", () => {
   const err = Err.wrap("test");
-  asserts.assert(!err.ok);
-  asserts.assert(err.err);
+  asserts.assert(!err.success);
 });
 
-Deno.test("[Result]: Ok", () => {
+Deno.test("[Result]: Ok -> success === true", () => {
   const ok = Ok.wrap("test");
-  asserts.assert(ok.ok);
-  asserts.assert(!ok.err);
+  asserts.assert(ok.success);
 });
 
 Deno.test("[Result]: Ok Unwrap -> Value", () => {
@@ -22,7 +20,11 @@ Deno.test("[Result]: Ok Unwrap -> Value", () => {
 
 Deno.test("[Result]: Err Unwrap -> Error", () => {
   const err = Err.wrap("test");
-  asserts.assertThrows(() => err.unwrap(), undefined, "Tried to unwrap Error: test");
+  asserts.assertThrows(
+    () => err.unwrap(),
+    undefined,
+    "Tried to unwrap Error: test",
+  );
 });
 
 Deno.test("[Result]: Ok is Result", () => {
