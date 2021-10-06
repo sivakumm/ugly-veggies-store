@@ -1,23 +1,23 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AbosComponent } from './abos/abos.component';
-import { HomeComponent } from './home/home.component';
-import { RezepteComponent } from './rezepte/rezepte.component';
-import { WarenkorbComponent } from './warenkorb/warenkorb.component';
-import { HeaderComponent } from './core/header/header.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {AbosComponent} from './abos/abos.component';
+import {HomeComponent} from './home/home.component';
+import {RezepteComponent} from './rezepte/rezepte.component';
+import {WarenkorbComponent} from './warenkorb/warenkorb.component';
 import {RouterModule, Routes} from "@angular/router";
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { productReducer } from "./state/products/products.reducer";
-import { ProductsEffects } from "./state/products/products.effects";
-import { HttpClientModule } from "@angular/common/http";
-import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
-import { ProdukteComponent } from './produkte/produkte.component';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {productReducer} from "./state/products/products.reducer";
+import {ProductsEffects} from "./state/products/products.effects";
+import {HttpClientModule} from "@angular/common/http";
+import {DisplayProdukteComponent} from './produkte/display-produkte/display-produkte.component';
+import {ProdukteComponent} from './produkte/produkte.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {CommonModule} from "@angular/common";
+import {SharedModule} from "./shared/shared.module";
+import {CoreModule} from "./core/core.module";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -37,19 +37,19 @@ const routes: Routes = [
     RezepteComponent,
     WarenkorbComponent,
     ProdukteComponent,
-    HeaderComponent,
     DisplayProdukteComponent,
-    ProdukteComponent
+    ProdukteComponent,
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
+    BrowserModule, //Core or shared module?
     RouterModule.forRoot(routes),
     EffectsModule.forRoot([ProductsEffects]),
-    HttpClientModule,
+    HttpClientModule, // Feature, shared or core module?
     StoreModule.forRoot({ products: productReducer }, {}),
-    FontAwesomeModule,
-    CommonModule,
+    FontAwesomeModule, // Feature or shared module?
+    SharedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
