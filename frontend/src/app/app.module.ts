@@ -7,7 +7,6 @@ import { AbosComponent } from './abos/abos.component';
 import { HomeComponent } from './home/home.component';
 import { RezepteComponent } from './rezepte/rezepte.component';
 import { WarenkorbComponent } from './warenkorb/warenkorb.component';
-import { ProdukteComponent } from './produkte/produkte.component';
 import { HeaderComponent } from './core/header/header.component';
 import {RouterModule, Routes} from "@angular/router";
 import { StoreModule } from '@ngrx/store';
@@ -16,7 +15,9 @@ import { productReducer } from "./state/products/products.reducer";
 import { ProductsEffects } from "./state/products/products.effects";
 import { HttpClientModule } from "@angular/common/http";
 import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
-import { ProduktComponent } from './produkte/produkt/produkt.component';
+import { ProdukteComponent } from './produkte/produkte.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: 'rezepte', component: RezepteComponent},
   {path: 'abos', component: AbosComponent},
   {path: 'warenkorb', component: WarenkorbComponent},
-  {path: 'produkte/:produktId', component: ProduktComponent},
+  {path: 'produkte/:produktId', component: ProdukteComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
@@ -38,7 +39,7 @@ const routes: Routes = [
     ProdukteComponent,
     HeaderComponent,
     DisplayProdukteComponent,
-    ProduktComponent
+    ProdukteComponent
   ],
   imports: [
     AppRoutingModule,
@@ -47,7 +48,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     EffectsModule.forRoot([ProductsEffects]),
     HttpClientModule,
-    StoreModule.forRoot({ products: productReducer }, {})
+    StoreModule.forRoot({ products: productReducer }, {}),
+    AppRoutingModule,
+    FontAwesomeModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
