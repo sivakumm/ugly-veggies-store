@@ -20,6 +20,8 @@ import { RegisterComponent } from './user/register/register.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormatErrorPipe } from './general/pipes/format-error.pipe';
 import { FormErrorComponent } from './general/error/form-error/form-error.component';
+import { userReducer } from "./state/users/users.reducer";
+import { UsersEffects } from "./state/users/users.effects";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -47,9 +49,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    EffectsModule.forRoot([ProductsEffects]),
+    EffectsModule.forRoot([ProductsEffects, UsersEffects]),
     HttpClientModule,
-    StoreModule.forRoot({ products: productReducer }, {})
+    StoreModule.forRoot({ products: productReducer, user: userReducer }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
