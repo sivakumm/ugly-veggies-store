@@ -3,15 +3,14 @@ import { BaseResult } from "./Result.ts";
 export class OkImpl<T> implements BaseResult<T, never> {
   static readonly EMPTY = new OkImpl<void>(undefined);
 
-  readonly ok!: true;
-  readonly err!: false;
-  readonly val!: T;
+  readonly success!: true;
+  readonly value!: T;
 
   /**
    * Helper function if you know you have an Ok<T> and T is iterable
    */
   [Symbol.iterator](): Iterator<T extends Iterable<infer U> ? U : never> {
-    const obj = Object(this.val) as Iterable<never>;
+    const obj = Object(this.value) as Iterable<never>;
 
     return Symbol.iterator in obj ? obj[Symbol.iterator]() : {
       next(): IteratorResult<never, never> {
@@ -25,9 +24,8 @@ export class OkImpl<T> implements BaseResult<T, never> {
       return new OkImpl(val);
     }
 
-    this.ok = true;
-    this.err = false;
-    this.val = val;
+    this.success = true;
+    this.value = val;
   }
 
   static wrap<U>(val: U): OkImpl<U> {
@@ -35,11 +33,11 @@ export class OkImpl<T> implements BaseResult<T, never> {
   }
 
   unwrapOr(_val: unknown): T {
-    return this.val;
+    return this.value;
   }
 
   unwrap(): T {
-    return this.val;
+    return this.value;
   }
 }
 

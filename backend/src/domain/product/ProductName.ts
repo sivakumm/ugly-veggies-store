@@ -1,12 +1,17 @@
+import { DomainValidationError } from "../../types/domain/validation.ts";
 import { DomainObject } from "../DomainObject.ts";
+import { Err } from "../validation/Err.ts";
+import { Ok } from "../validation/Ok.ts";
+import { Result } from "../validation/Result.ts";
 
-interface ProductNameInput {
+export interface ProductNameInput {
   name: string;
 }
 
 type ProductNameType = string;
 
-export class ProductName extends DomainObject<ProductNameInput, ProductNameType> {
+export class ProductName
+  extends DomainObject<ProductNameInput, ProductNameType> {
   private readonly _name: ProductNameType;
 
   private constructor(input: ProductNameInput) {
@@ -14,26 +19,42 @@ export class ProductName extends DomainObject<ProductNameInput, ProductNameType>
     this._name = input.name;
   }
 
-  public static create(input: ProductNameInput): ProductName | Error {
-    const valid = ProductName.validateInput(input);
-    if (!valid) {
-      // TODO: don't throw here -> return Result instead
-      throw new Error("Must provide a name for the user");
-    } else {
-      return new ProductName(input);
-    }
+  public static create(
+    input: ProductNameInput,
+  ): Result<ProductName, DomainValidationError[]> {
+    const validationResult = ProductName.validateInput(input);
+    return validationResult.success
+      ? Ok.wrap(new ProductName(input))
+      : validationResult;
   }
 
-  // TODO: refactor to return Result<Ok, Err> and not a simple boolean as the error information is lost!
-  private static validateInput(input: ProductNameInput): boolean {
-    if (input?.name === undefined) {
-      return false;
-    } else if (input.name.length > 30) {
-      return false;
-    } else if (input.name.length <= 3) {
-      return false;
+  private static validateInput(
+    input: ProductNameInput,
+  ): Result<boolean, DomainValidationError[]> {
+    const validationErrors: DomainValidationError[] = [];
+    if (input.name === null || input.name === undefined) {
+      validationErrors.push({
+        name: "Name Validation Error",
+        message: "Name does not exist!",
+      });
+      return Err.wrap(validationErrors);
+    }
+    if (input.name.length > 30) {
+      validationErrors.push({
+        name: "Name Validation Error",
+        message: "Name mustn't be longer than 30 characters.",
+      });
+    }
+    if (input.name.length <= 3) {
+      validationErrors.push({
+        name: "Name Validation Error",
+        message: "Name must be at least 3 characters long.",
+      });
+    }
+    if (validationErrors.length > 0) {
+      return Err.wrap(validationErrors);
     } else {
-      return true;
+      return Ok.wrap(true);
     }
   }
 

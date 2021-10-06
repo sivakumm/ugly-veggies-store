@@ -1,9 +1,13 @@
 import { Err } from "./Err.ts";
 import { Ok } from "./Ok.ts";
 
-export interface BaseResult<T, E> extends Iterable<T extends Iterable<infer U> ? U : never> {
-  /** `true` when the result is Ok */ readonly ok: boolean;
-  /** `true` when the result is Err */ readonly err: boolean;
+export interface BaseResult<T, E>
+  extends Iterable<T extends Iterable<infer U> ? U : never> {
+  /**
+   * `true` when the result is Ok
+   * `false` when the result is Err
+   */
+  readonly success: boolean;
 
   /**
    * Returns the contained `Ok` value.

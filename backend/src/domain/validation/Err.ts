@@ -4,9 +4,8 @@ export class ErrImpl<E> implements BaseResult<never, E> {
   /** An empty Err */
   static readonly EMPTY = new ErrImpl<void>(undefined);
 
-  readonly ok!: false;
-  readonly err!: true;
-  readonly val!: E;
+  readonly success!: false;
+  readonly value!: E;
 
   private readonly _stack!: string;
 
@@ -23,12 +22,13 @@ export class ErrImpl<E> implements BaseResult<never, E> {
       return new ErrImpl(val);
     }
 
-    this.ok = false;
-    this.err = true;
-    this.val = val;
+    this.success = false;
+    this.value = val;
 
     const stackLines = new Error().stack!.split("\n").slice(2);
-    if (stackLines && stackLines.length > 0 && stackLines[0].includes("ErrImpl")) {
+    if (
+      stackLines && stackLines.length > 0 && stackLines[0].includes("ErrImpl")
+    ) {
       stackLines.shift();
     }
 
@@ -40,7 +40,9 @@ export class ErrImpl<E> implements BaseResult<never, E> {
   }
 
   unwrap(): never {
-    throw new Error(`Tried to unwrap Error: ${String(this.val)}\n${this._stack}`);
+    throw new Error(
+      `Tried to unwrap Error: ${JSON.stringify(this.value)}\n${this._stack}`,
+    );
   }
 
   get stack(): string | undefined {
