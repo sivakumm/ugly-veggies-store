@@ -1,5 +1,4 @@
-import { BaseResult, Result } from "./Result.ts";
-import { Err } from "./Err.ts";
+import { BaseResult } from "./Result.ts";
 
 export class OkImpl<T> implements BaseResult<T, never> {
   static readonly EMPTY = new OkImpl<void>(undefined);
@@ -41,38 +40,6 @@ export class OkImpl<T> implements BaseResult<T, never> {
 
   unwrap(): T {
     return this.val;
-  }
-
-  map<T2>(mapper: (val: T) => T2): Ok<T2> {
-    return new Ok(mapper(this.val));
-  }
-
-  andThen<T2>(mapper: (val: T) => Ok<T2>): Ok<T2>;
-  andThen<E2>(mapper: (val: T) => Err<E2>): Result<T, E2>;
-  andThen<T2, E2>(mapper: (val: T) => Result<T2, E2>): Result<T2, E2>;
-  andThen<T2, E2>(mapper: (val: T) => Result<T2, E2>): Result<T2, E2> {
-    return mapper(this.val);
-  }
-
-  mapErr(_mapper: unknown): Ok<T> {
-    return this;
-  }
-
-  /**
-   * Returns the contained `Ok` value, but never throws.
-   * Unlike `unwrap()`, this method doesn't throw and is only callable on an Ok<T>
-   *
-   * Therefore, it can be used instead of `unwrap()` as a maintainability safeguard
-   * that will fail to compile if the error type of the Result is later changed to an error that can actually occur.
-   *
-   * (this is the `into_ok()` in rust)
-   */
-  safeUnwrap(): T {
-    return this.val;
-  }
-
-  toString(): string {
-    return `Ok(${String(this.val)})`;
   }
 }
 
