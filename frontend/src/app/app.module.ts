@@ -7,19 +7,20 @@ import {WarenkorbComponent} from './warenkorb/warenkorb.component';
 import {SharedModule} from "./shared/shared.module";
 import {CoreModule} from "./core/core.module";
 import {ProdukteModule} from "./produkte/produkte.module";
+import {RezepteModule} from "./rezepte/rezepte.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     AbosComponent,
     HomeComponent,
-    RezepteComponent,
     WarenkorbComponent,
   ],
   imports: [
     SharedModule,
     CoreModule,
     ProdukteModule,
+    RezepteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
