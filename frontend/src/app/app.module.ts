@@ -9,6 +9,7 @@ import { RezepteComponent } from './rezepte/rezepte.component';
 import { WarenkorbComponent } from './warenkorb/warenkorb.component';
 import { ProdukteComponent } from './produkte/produkte.component';
 import { RouterModule, Routes } from "@angular/router";
+import { HeaderComponent } from './core/header/header.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from "./state/products/products.reducer";
@@ -22,9 +23,15 @@ import { FormatErrorPipe } from './general/pipes/format-error.pipe';
 import { FormErrorComponent } from './general/error/form-error/form-error.component';
 import { userReducer } from "./state/users/users.reducer";
 import { UsersEffects } from "./state/users/users.effects";
+import { ProduktComponent } from './produkte/produkt/produkt.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'produkte', component: ProdukteComponent},
+  {path: 'rezepte', component: RezepteComponent},
+  {path: 'abos', component: AbosComponent},
+  {path: 'warenkorb', component: WarenkorbComponent},
+  {path: 'produkte/:produktId', component: ProduktComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
@@ -36,6 +43,9 @@ const routes: Routes = [
     RezepteComponent,
     WarenkorbComponent,
     ProdukteComponent,
+    HeaderComponent,
+    DisplayProdukteComponent,
+    ProduktComponent,
     DisplayProdukteComponent,
     LoginComponent,
     RegisterComponent,

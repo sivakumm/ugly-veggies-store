@@ -11,7 +11,7 @@ jobs:
     runs-on: self-hosted
     defaults:
       run:
-        working-directory: ./frontend
+        working-directory: ./backend
     steps:
       - uses: actions/checkout@v2
       - uses: denoland/setup-deno@v1
@@ -19,4 +19,11 @@ jobs:
           deno-version: '~1.14'
       - name: lint
         run: |
-          deno lint
+          deno lint -c deno.config.json
+      - name: check formatting
+        run: |
+          deno fmt -c deno.config.json --check
+      - name: unit test
+        run: |
+          deno test -c deno.config.json -j --coverage=coverage_profile
+          deno coverage -q --include="^file:.*/src/.*" coverage_profile
