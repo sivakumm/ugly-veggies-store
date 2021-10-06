@@ -15,4 +15,6 @@ export abstract class DomainObject<I, T> {
     // TODO: check if this is a reasonable way to perform an equality check in JS/TS
     return JSON.stringify(this.input) === JSON.stringify(other.input);
   }
+
+  protected abstract getPrimitiveValue(): T;
 }
