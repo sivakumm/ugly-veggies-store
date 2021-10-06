@@ -1,5 +1,5 @@
-import { Err } from "./ResultErr.ts";
-import { Ok } from "./ResultOk.ts";
+import { Err } from "./Err.ts";
+import { Ok } from "./Ok.ts";
 
 export interface BaseResult<T, E> extends Iterable<T extends Iterable<infer U> ? U : never> {
   /** `true` when the result is Ok */ readonly ok: boolean;

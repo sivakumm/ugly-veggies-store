@@ -1,7 +1,7 @@
 import { asserts } from "../../../dev_dependencies.ts";
 import { isResult } from "../../../src/domain/validation/Result.ts";
-import { Err } from "../../../src/domain/validation/ResultErr.ts";
-import { Ok } from "../../../src/domain/validation/ResultOk.ts";
+import { Err } from "../../../src/domain/validation/Err.ts";
+import { Ok } from "../../../src/domain/validation/Ok.ts";
 
 Deno.test("[Result]: Err", () => {
   const err = new Err("test");
