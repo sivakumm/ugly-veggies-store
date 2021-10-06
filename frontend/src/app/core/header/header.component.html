@@ -1,5 +1,5 @@
 <nav class="flex p-5 bg-green-600 text-green-100 items-baseline">
-  <div class="sm:hidden flex-1">
+  <div class="tablet:hidden flex-1">
     <div>
       <button (click)="toggleNavbar()" class="flex items-center px-3 py-1 bg-green-100 rounded text-green-100 hover:bg-white">
         <fa-icon [icon]="faAlignJustify" class="text-green-600"></fa-icon>
@@ -9,7 +9,7 @@
       <ng-container [ngTemplateOutlet]="navbarLinks"></ng-container>
     </div>
   </div>
-  <div class="hidden sm:block flex-1">
+  <div class="hidden tablet:block flex-1">
     <div class="flex flex-row space-x-4 children:hover:text-white">
       <ng-container [ngTemplateOutlet]="navbarLinks"></ng-container>
     </div>
