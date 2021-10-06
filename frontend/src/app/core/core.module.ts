@@ -4,9 +4,7 @@ import {HeaderComponent} from "./header/header.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {RouterModule} from "@angular/router";
 import {EffectsModule} from "@ngrx/effects";
-import {ProductsEffects} from "../state/products/products.effects";
 import {StoreModule} from "@ngrx/store";
-import {productReducer} from "../state/products/products.reducer";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "../app-routing.module";
 
@@ -17,8 +15,8 @@ import {AppRoutingModule} from "../app-routing.module";
     BrowserModule,
     FontAwesomeModule,
     RouterModule,
-    EffectsModule.forRoot([ProductsEffects]),
-    StoreModule.forRoot({products: productReducer}, {}),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}),
   ],
   exports: [HeaderComponent, BrowserModule, AppRoutingModule]
 })

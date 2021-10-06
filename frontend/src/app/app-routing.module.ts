@@ -8,7 +8,7 @@ import {WarenkorbComponent} from "./warenkorb/warenkorb.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'produkte', component: ProdukteComponent},
+  {path: 'produkte', loadChildren: () => import('./produkte/produkte.module').then(m => m.ProdukteModule)},
   {path: 'rezepte', component: RezepteComponent},
   {path: 'abos', component: AbosComponent},
   {path: 'warenkorb', component: WarenkorbComponent},
