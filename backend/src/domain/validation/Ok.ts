@@ -1,5 +1,5 @@
 import { BaseResult, Result } from "./Result.ts";
-import { Err } from "./ResultErr.ts";
+import { Err } from "./Err.ts";
 
 export class OkImpl<T> implements BaseResult<T, never> {
   static readonly EMPTY = new OkImpl<void>(undefined);
