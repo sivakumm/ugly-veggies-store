@@ -23,7 +23,6 @@ import { FormatErrorPipe } from './general/pipes/format-error.pipe';
 import { FormErrorComponent } from './general/error/form-error/form-error.component';
 import { userReducer } from "./state/users/users.reducer";
 import { UsersEffects } from "./state/users/users.effects";
-import { ProduktComponent } from './produkte/produkt/produkt.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -31,7 +30,6 @@ const routes: Routes = [
   {path: 'rezepte', component: RezepteComponent},
   {path: 'abos', component: AbosComponent},
   {path: 'warenkorb', component: WarenkorbComponent},
-  {path: 'produkte/:produktId', component: ProduktComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
@@ -44,8 +42,6 @@ const routes: Routes = [
     WarenkorbComponent,
     ProdukteComponent,
     HeaderComponent,
-    DisplayProdukteComponent,
-    ProduktComponent,
     DisplayProdukteComponent,
     LoginComponent,
     RegisterComponent,
