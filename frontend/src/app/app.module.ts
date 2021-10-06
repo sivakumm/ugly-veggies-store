@@ -44,12 +44,10 @@ const routes: Routes = [
   imports: [
     AppRoutingModule,
     BrowserModule,
-    AppRoutingModule,
     RouterModule.forRoot(routes),
     EffectsModule.forRoot([ProductsEffects]),
     HttpClientModule,
     StoreModule.forRoot({ products: productReducer }, {}),
-    AppRoutingModule,
     FontAwesomeModule,
     CommonModule,
   ],
