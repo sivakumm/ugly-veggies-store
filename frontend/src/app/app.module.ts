@@ -25,6 +25,8 @@ import { UsersEffects } from "./state/users/users.effects";
 import { ProdukteComponent } from './produkte/produkte.component';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { CommonModule } from "@angular/common";
+import { LogoutComponent } from './user/logout/logout.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -50,11 +52,13 @@ const routes: Routes = [
     RegisterComponent,
     FormatErrorPipe,
     FormErrorComponent,
-    ProdukteComponent
+    ProdukteComponent,
+    LogoutComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

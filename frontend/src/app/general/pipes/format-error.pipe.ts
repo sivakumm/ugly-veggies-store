@@ -21,7 +21,7 @@ export class FormatErrorPipe implements PipeTransform {
         return 'Das Feld ist zwingend erforderlich.';
       }
     }
-    return 'nothing specified';
+    return '';
   }
 
 }

@@ -6,9 +6,11 @@
   box-shadow: 0 0 10px black;
   border-radius: 10px;
 
-  & > div > div {
+  & .more-info {
     text-align: center;
     margin: 0 auto 16px auto;
+    color: black;
+
     & > a {
       color: #0645AD;
       cursor: pointer;
@@ -19,6 +21,7 @@
     }
   }
 }
+
 .navbar {
   display: none;
 }
