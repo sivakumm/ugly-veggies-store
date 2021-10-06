@@ -13,4 +13,4 @@ bench({
   },
 });
 
-runBenchmarks();
+await runBenchmarks();
