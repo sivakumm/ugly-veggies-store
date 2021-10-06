@@ -33,6 +33,8 @@ export class RegisterComponent {
   constructor(private store: Store<AppState>) { }
 
   onSubmit(): void {
-    this.store.dispatch(registerUser(this.userForm.value));
+    if (this.userForm.valid) {
+      this.store.dispatch(registerUser(this.userForm.value));
+    }
   }
 }

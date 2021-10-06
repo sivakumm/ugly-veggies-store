@@ -1,6 +1,6 @@
 import { User } from "../../models/user.model";
 import { createReducer, on } from "@ngrx/store";
-import { registerUserSuccess } from "./users.action";
+import { loginUserSuccess, logoutUser, registerUserSuccess } from "./users.action";
 
 const initialState: Readonly<User> = {
   username: '',
@@ -10,5 +10,7 @@ const initialState: Readonly<User> = {
 
 export const userReducer = createReducer(
   initialState,
-  on(registerUserSuccess, (state, { user }): User => user)
+  on(registerUserSuccess, (state, { user }) => user),
+  on(loginUserSuccess, (state, { user }) => user),
+  on(logoutUser, () => initialState)
 );
