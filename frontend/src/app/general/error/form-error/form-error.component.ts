@@ -13,8 +13,8 @@ import {animate, style, transition, trigger} from "@angular/animations";
         transition(
           ':enter',
           [
-            style({ opacity: 0 }),
-            animate('0.2s ease-in-out', style({ opacity: 1 }))
+            style({ opacity: 0, transform: 'translateY(-120%)' }),
+            animate('0.3s ease-in-out', style({ opacity: 1, transform: 'translateY(0)' }))
           ]
         ),
         transition(
