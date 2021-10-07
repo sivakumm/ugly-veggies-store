@@ -1,5 +1,5 @@
 import { asserts } from "../../../dev_dependencies.ts";
-import { Product } from "../../../src/domain/product/Product.ts";
+import { Product } from "../../../src/domain/models/product/Product.ts";
 
 Deno.test("[Product]: Valid Product", () => {
   const input = {
@@ -16,7 +16,7 @@ Deno.test("[Product]: Valid Product", () => {
 
 Deno.test("[Product]: Input to ProductName is too long", () => {
   const input = {
-    name: "The product name is way toooooooooooooooo long!",
+    name: "The product name is way toooooooooooooooooooooooooooooooooooo long!",
     id: "id-123456789",
     price: 10,
     imageUrl: "https://image.url",
@@ -24,7 +24,7 @@ Deno.test("[Product]: Input to ProductName is too long", () => {
   const validationErrorNull = Product.create(input);
   asserts.assertEquals(validationErrorNull.value, [{
     name: "ProductName Validation Error",
-    message: "Name mustn't be longer than 30 characters.",
+    message: "Name mustn't be longer than 40 characters.",
   }]);
 });
 

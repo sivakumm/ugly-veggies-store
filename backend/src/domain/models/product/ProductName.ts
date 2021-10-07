@@ -1,4 +1,4 @@
-import { DomainValidationError } from "../../types/domain/validation.ts";
+import { DomainValidationError } from "../validation/DomainValidationError.ts";
 import { DomainObject } from "../DomainObject.ts";
 import { Err } from "../validation/Err.ts";
 import { Ok } from "../validation/Ok.ts";
@@ -39,10 +39,10 @@ export class ProductName
       });
       return Err.wrap(validationErrors);
     }
-    if (input.name.length > 30) {
+    if (input.name.length > 40) {
       validationErrors.push({
         name: "ProductName Validation Error",
-        message: "Name mustn't be longer than 30 characters.",
+        message: "Name mustn't be longer than 40 characters.",
       });
     }
     if (input.name.length <= 3) {
