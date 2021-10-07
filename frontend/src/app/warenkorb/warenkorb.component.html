@@ -1,1 +1,8 @@
 <p>warenkorb works!</p>
+<!--<tr>-->
+<!--  <th>Name</th>-->
+<!--</tr>-->
+<!--<tr *ngFor="let product of (warenkorbProducts$ | async)">-->
+<!--  <td>{{product.name}}</td>-->
+<!--</tr>-->
+<app-display-produkte [products]="(warenkorbProducts$ | async) || []"></app-display-produkte>
