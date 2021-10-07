@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { User } from "../../../models/user.model";
 import { Observable, Subscription } from "rxjs";
@@ -31,7 +31,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
     )
   ]
 })
-export class LoginRegisterMaskComponent implements OnInit {
+export class LoginRegisterMaskComponent implements OnInit, OnDestroy {
 
   faUserCircle = faUserCircle;
   showLogin: boolean = true;
