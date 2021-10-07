@@ -1,3 +1,12 @@
+.login-mask {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+}
+
 .navbar {
   display: none;
 }

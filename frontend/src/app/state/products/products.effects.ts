@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {ProductsService} from "../../produkte/services/products.service";
-import {map, switchMap} from "rxjs/operators";
-import {loadProducts, loadProductsSuccess} from "./products.action";
+import { Injectable } from "@angular/core";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { ProductsService } from "../../produkte/services/products.service";
+import { map, switchMap } from "rxjs/operators";
+import { loadProducts, loadProductsSuccess } from "./products.action";
 
 @Injectable()
 export class ProductsEffects {

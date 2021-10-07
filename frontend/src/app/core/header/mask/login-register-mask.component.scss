@@ -1,0 +1,23 @@
+.login-mask {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+
+  & .more-info {
+    text-align: center;
+    margin: 0 auto 16px auto;
+    color: black;
+
+    & > a {
+      color: #0645AD;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
