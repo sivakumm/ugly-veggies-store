@@ -1,4 +1,4 @@
-import { DomainValidationError } from "../../types/domain/validation.ts";
+import { DomainValidationError } from "../validation/DomainValidationError.ts";
 import { DomainObject } from "../DomainObject.ts";
 import { Err } from "../validation/Err.ts";
 import { Ok } from "../validation/Ok.ts";
