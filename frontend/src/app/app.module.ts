@@ -13,7 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from "./state/products/products.reducer";
 import { ProductsEffects } from "./state/products/products.effects";
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { DisplayProdukteComponent } from './produkte/display-produkte/display-produkte.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -28,6 +28,7 @@ import { CommonModule } from "@angular/common";
 import { LogoutComponent } from './user/logout/logout.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LoginRegisterMaskComponent } from './core/header/mask/login-register-mask.component';
+import {AuthenticationInterceptor} from "./general/interceptors/authentication.interceptor";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -72,7 +73,7 @@ const routes: Routes = [
     FontAwesomeModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
