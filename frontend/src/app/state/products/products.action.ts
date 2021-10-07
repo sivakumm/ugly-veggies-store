@@ -9,3 +9,8 @@ export const loadProductsSuccess = createAction(
   '[Product] Load Products Success',
   props<{ products: Product[] }>()
 );
+
+export const addProductAction = createAction(
+  '[Product] add Product to Shopping cart',
+  props<{ product: Product }>()
+);

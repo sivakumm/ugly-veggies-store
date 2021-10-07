@@ -1,1 +1,1 @@
-<app-display-produkte [products]="products$ | async"></app-display-produkte>
+<app-display-produkte [products]="(products$ | async) || []"></app-display-produkte>

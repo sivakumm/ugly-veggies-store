@@ -1,6 +1,9 @@
 import {Component, Input} from '@angular/core';
 import {Product} from "../../models/product.model";
 import {Router} from "@angular/router";
+import {Store} from "@ngrx/store";
+import {AppState} from "../../state/app.state";
+import {addProductAction} from "../../state/products/products.action";
 
 @Component({
   selector: 'app-display-produkte',
@@ -9,10 +12,10 @@ import {Router} from "@angular/router";
 })
 export class DisplayProdukteComponent {
 
-  @Input() products: Product[] | null = [];
+  @Input() products: Product[] = [];
   private selectedId?: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: Store<AppState>) { }
 
   onSelect(product: Product) {
     this.router.navigate(['produkte', product.id])
@@ -23,6 +26,7 @@ export class DisplayProdukteComponent {
   }
 
   addProduct(product: Product) {
+    this.store.dispatch(addProductAction({product}))
   }
 
   removeProduct(product: Product) {
