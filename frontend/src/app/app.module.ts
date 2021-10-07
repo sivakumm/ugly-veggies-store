@@ -27,6 +27,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { CommonModule } from "@angular/common";
 import { LogoutComponent } from './user/logout/logout.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { LoginRegisterMaskComponent } from './core/header/mask/login-register-mask.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -53,7 +54,8 @@ const routes: Routes = [
     FormatErrorPipe,
     FormErrorComponent,
     ProdukteComponent,
-    LogoutComponent
+    LogoutComponent,
+    LoginRegisterMaskComponent
   ],
   imports: [
     AppRoutingModule,
