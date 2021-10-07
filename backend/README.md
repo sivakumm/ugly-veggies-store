@@ -4,7 +4,9 @@ The backend uses Deno.
 
 ## description
 
-The application uses the server framework: [Oak](https://github.com/oakserver/oak) (inspired by [Koa](https://github.com/koajs/koa/))
+The application uses the server framework
+[Oak](https://github.com/oakserver/oak) (inspired by
+[Koa](https://github.com/koajs/koa/))
 
 ## comparison to node.js
 
@@ -13,7 +15,8 @@ The application uses the server framework: [Oak](https://github.com/oakserver/oa
 - All async actions in Deno return a promise.
 - Deno requires explicit permissions for file, network, and environment access.
 - Deno always dies on uncaught errors.
-- Deno uses "ES Modules" and does not support `require()`. Third party modules are imported via URLs:
+- Deno uses "ES Modules" and does not support `require()`. Third party modules
+  are imported via URLs:
   ```bash
   import * as log from "https://deno.land/std@0.109.0/log/mod.ts";
   ```
@@ -22,7 +25,8 @@ The application uses the server framework: [Oak](https://github.com/oakserver/oa
 
 ### dvm (deno version manager)
 
-**dvm** is the counterpart to **nvm** for the deno ecosystem. it can be installed via curl:
+**dvm** is the counterpart to **nvm** for the deno ecosystem. It can be
+installed via curl:
 
 ```bash
 curl -fsSL -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/axetroy/dvm/master/install.sh | bash
@@ -101,6 +105,11 @@ docker run -d -p 8000:8000 ugly-veggies-backend
 
 The container can be accessed on port 8000.
 
-### bundled
+### bundle & compile
 
-...
+The `bundle` command allows to create a single Javascript file containing all
+the type-checked and compiled Deno code. The `compile` command creates a
+standalone executable that contains deno and the necessary dependencies.
+
+Currently, `deno bundle` and `deno compile` do not work due to an existing bug:
+[https://github.com/denoland/deno/issues/12086](https://github.com/denoland/deno/issues/12086)

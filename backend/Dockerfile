@@ -1,4 +1,4 @@
-FROM denoland/deno:alpine-1.14.2
+FROM denoland/deno:alpine-1.14.3
 
 # The port that your application listens to.
 EXPOSE 8000
@@ -21,4 +21,4 @@ COPY src ./src
 # Compile the server so that it doesn't need to be compiled each startup/entry.
 RUN deno cache -c deno.config.json src/server.ts
 
-CMD ["run", "--allow-net=0.0.0.0:8000", "--allow-read", "src/server.ts"]
+CMD ["run", "--allow-net=0.0.0.0:8000", "--no-check", "--allow-read", "src/server.ts"]
