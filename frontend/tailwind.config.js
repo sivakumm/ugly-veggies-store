@@ -25,6 +25,12 @@ module.exports = {
       }
     }
   },
+  variants: {
+    extend: {
+      tableLayout: ['hover'],
+      backgroundColor: ['even']
+    }
+  },
   mode: 'jit',
   purge: {
     content: [
