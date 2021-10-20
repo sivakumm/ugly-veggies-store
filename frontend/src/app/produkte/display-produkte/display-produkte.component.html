@@ -1,16 +1,16 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Image URL</th>
+<table class="w-5/6 text-left table-fixed sm:rounded-lg mx-auto">
+  <thead class="text-gray-600 uppercase font-medium text-s tracking-wide bg-gray-100">
+    <tr class="">
+      <th class="w-1/2 laptop:w-10/12 p-2">Name</th>
+      <th class="w-1/4 laptop:w-1/12 p-2">Price</th>
+      <th class="w-1/4 laptop:w-1/12 p-2">Image</th>
     </tr>
   </thead>
-  <tbody>
-    <tr (click)="onSelect(product)" [class.selected]="isSelected(product)" *ngFor="let product of products">
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.imageUrl }}</td>
+  <tbody class="divide-y divide-gray-200 text-gray-900 font-medium text-s">
+    <tr (click)="onSelect(product)" class="hover:bg-green-50 even:bg-gray-50" [class.selected]="isSelected(product)" *ngFor="let product of products">
+      <td class="p-2">{{ product.name }}</td>
+      <td class="p-2">{{ product.price }}</td>
+      <td class="p-2"><img class="h-14 w-14 rounded-lg" src="{{ product.imageUrl }}"></td>
     </tr>
   </tbody>
 </table>
