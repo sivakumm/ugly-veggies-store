@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-backend:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     defaults:
       run:
         working-directory: ./backend
@@ -25,5 +25,5 @@ jobs:
           deno fmt -c deno.config.json --check
       - name: unit test
         run: |
-          deno test -c deno.config.json -j --coverage=coverage_profile
+          deno test -c deno.config.json -j --coverage=coverage_profile --no-check
           deno coverage -q --include="^file:.*/src/.*" coverage_profile

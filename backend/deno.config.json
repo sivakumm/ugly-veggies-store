@@ -3,15 +3,15 @@
   "compilerOptions": {
     "allowJs": true,
     "lib": ["deno.window"],
-    "strict": true
+    "strict": true,
+    "strictNullChecks": true
   },
   "lint": {
     "files": {
       "include": ["src/", "types/", "test/"]
     },
     "rules": {
-      "tags": ["recommended"],
-      "include": ["ban-untagged-todo"]
+      "tags": ["recommended"]
     }
   },
   "fmt": {
@@ -20,7 +20,7 @@
     },
     "options": {
       "useTabs": false,
-      "lineWidth": 100,
+      "lineWidth": 80,
       "indentWidth": 2,
       "singleQuote": false,
       "proseWrap": "preserve"

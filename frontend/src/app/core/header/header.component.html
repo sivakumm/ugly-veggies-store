@@ -14,7 +14,10 @@
       <ng-container [ngTemplateOutlet]="navbarLinks"></ng-container>
     </div>
   </div>
-  <a routerLink="/warenkorb" class="hover:text-white"><fa-icon [icon]="faShoppingBasket" size="lg"></fa-icon></a>
+  <div class="relative">
+    <a routerLink="/warenkorb" class="hover:text-white"><fa-icon [icon]="faShoppingBasket" size="lg"></fa-icon></a>
+    <app-login-register-mask></app-login-register-mask>
+  </div>
 </nav>
 
 <ng-template #navbarLinks>

@@ -1,0 +1,23 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label for="username">Username</label>
+  <input id="username" formControlName="username" required />
+  <app-form-error [control]="userForm.controls.username"></app-form-error>
+
+  <label for="password">Password</label>
+  <input id="password" formControlName="password" type="password" required />
+  <app-form-error [control]="userForm.controls.password"></app-form-error>
+
+  <label for="email">E-Mail</label>
+  <input id="email" formControlName="email" type="email" required />
+  <app-form-error [control]="userForm.controls.email"></app-form-error>
+
+  <label for="currency">Currency</label>
+  <select id="currency" formControlName="currency" required>
+    <option value="CHF">CHF - Schweizer Franken</option>
+    <option value="EUR">EUR - Euro</option>
+    <option value="GBP">GBP - Britisch Pounds</option>
+  </select>
+  <app-form-error [control]="userForm.controls.currency"></app-form-error>
+
+  <button type="submit" [disabled]="userForm.invalid">Register</button>
+</form>
