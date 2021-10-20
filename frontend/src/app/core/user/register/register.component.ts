@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from "@ngrx/store";
-import { AppState } from "../../state/app.state";
+import { AppState } from "../../../state/app.state";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { registerUser } from "../../state/users/users.action";
+import { registerUser } from "../../../state/users/users.action";
 
 @Component({
   selector: 'app-register',
