@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { UserService } from "../../user/services/user.service";
+import { UserService } from "../../core/user/services/user.service";
 import {loginUser, loginUserSuccess, registerUser, registerUserSuccess} from "./users.action";
 import { map, switchMap } from "rxjs/operators";
 import { User } from "../../models/user.model";
