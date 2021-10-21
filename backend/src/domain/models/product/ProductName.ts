@@ -10,12 +10,11 @@ export interface ProductNameInput {
 type ProductNameJsonOutput = string;
 type ProductNameType = string;
 
-export class ProductName
-  extends DomainObject<
-    ProductNameInput,
-    ProductNameType,
-    ProductNameJsonOutput
-  > {
+export class ProductName extends DomainObject<
+  ProductNameInput,
+  ProductNameType,
+  ProductNameJsonOutput
+> {
   private readonly _name: ProductNameType;
 
   private constructor(input: ProductNameInput) {

@@ -10,12 +10,11 @@ export interface ProductImageUrlInput {
 type ProductImageUrlJsonOutput = string;
 type ProductImageUrlType = string;
 
-export class ProductImageUrl
-  extends DomainObject<
-    ProductImageUrlInput,
-    ProductImageUrlType,
-    ProductImageUrlJsonOutput
-  > {
+export class ProductImageUrl extends DomainObject<
+  ProductImageUrlInput,
+  ProductImageUrlType,
+  ProductImageUrlJsonOutput
+> {
   private readonly _imageUrl: ProductImageUrlType;
 
   private constructor(input: ProductImageUrlInput) {
