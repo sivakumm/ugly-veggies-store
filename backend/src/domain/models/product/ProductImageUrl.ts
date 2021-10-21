@@ -7,11 +7,15 @@ import { Result } from "../validation/Result.ts";
 export interface ProductImageUrlInput {
   imageUrl: string;
 }
-
+type ProductImageUrlJsonOutput = string;
 type ProductImageUrlType = string;
 
 export class ProductImageUrl
-  extends DomainObject<ProductImageUrlInput, ProductImageUrlType> {
+  extends DomainObject<
+    ProductImageUrlInput,
+    ProductImageUrlType,
+    ProductImageUrlJsonOutput
+  > {
   private readonly _imageUrl: ProductImageUrlType;
 
   private constructor(input: ProductImageUrlInput) {
@@ -50,6 +54,10 @@ export class ProductImageUrl
   }
 
   getPrimitiveValue() {
+    return this._imageUrl;
+  }
+
+  toJSON() {
     return this._imageUrl;
   }
 }

@@ -22,12 +22,20 @@ export interface ProductInput {
   imageUrl: ProductImageUrl;
 }
 
+export interface ProductJsonOutput {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+}
+
 type ProductType = ProductInput;
 
 // TODO: fix the type chaos -> inputs should be in the raw format
 // but the internal representation should be of the correct Domain Objects
 
-export class Product extends DomainObject<ProductInput, ProductType> {
+export class Product
+  extends DomainObject<ProductInput, ProductType, ProductJsonOutput> {
   readonly _id: ProductId;
   readonly _name: ProductName;
   readonly _price: ProductPrice;
@@ -101,6 +109,15 @@ export class Product extends DomainObject<ProductInput, ProductType> {
       name: this._name,
       price: this._price,
       imageUrl: this._imageUrl,
+    };
+  }
+
+  toJSON() {
+    return {
+      id: this._id.toJSON(),
+      name: this._name.toJSON(),
+      price: this._price.toJSON(),
+      imageUrl: this._imageUrl.toJSON(),
     };
   }
 }

@@ -7,11 +7,15 @@ import { Result } from "../validation/Result.ts";
 export interface ProductPriceInput {
   price: number;
 }
-
+type ProductPriceJsonOutput = number;
 type ProductPriceType = number;
 
 export class ProductPrice
-  extends DomainObject<ProductPriceInput, ProductPriceType> {
+  extends DomainObject<
+    ProductPriceInput,
+    ProductPriceType,
+    ProductPriceJsonOutput
+  > {
   private readonly _price: ProductPriceType;
 
   private constructor(input: ProductPriceInput) {
@@ -50,6 +54,10 @@ export class ProductPrice
   }
 
   getPrimitiveValue() {
+    return this._price;
+  }
+
+  toJSON() {
     return this._price;
   }
 }

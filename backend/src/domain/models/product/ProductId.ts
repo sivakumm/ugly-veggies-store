@@ -8,9 +8,11 @@ export interface ProductIdInput {
   id: string;
 }
 
+type ProductIdJsonOutput = string;
 type ProductIdType = string;
 
-export class ProductId extends DomainObject<ProductIdInput, ProductIdType> {
+export class ProductId
+  extends DomainObject<ProductIdInput, ProductIdType, ProductIdJsonOutput> {
   private readonly _id: ProductIdType;
 
   private constructor(input: ProductIdInput) {
@@ -49,6 +51,10 @@ export class ProductId extends DomainObject<ProductIdInput, ProductIdType> {
   }
 
   getPrimitiveValue() {
+    return this._id;
+  }
+
+  toJSON() {
     return this._id;
   }
 }
