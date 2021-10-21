@@ -52,3 +52,9 @@ Deno.test("[ProductName]: Equality Test", () => {
   const o2 = ProductName.create(input).unwrap();
   asserts.assert(o1.equals(o2));
 });
+
+Deno.test("[ProductName]: toJSON Test", () => {
+  const input = { name: "Valid Product Name" };
+  const o1 = ProductName.create(input).unwrap();
+  asserts.assertEquals(o1.toJSON(), input.name);
+});

@@ -1,11 +1,11 @@
-export abstract class DomainObject<I, T> {
+export abstract class DomainObject<I, T, O> {
   public readonly input: I;
 
   constructor(input: I) {
     this.input = Object.freeze(input);
   }
 
-  public equals(other: DomainObject<I, T>): boolean {
+  public equals(other: DomainObject<I, T, O>): boolean {
     if (other === null || other === undefined) {
       return false;
     }
@@ -17,4 +17,5 @@ export abstract class DomainObject<I, T> {
   }
 
   protected abstract getPrimitiveValue(): T;
+  protected abstract toJSON(): O;
 }
