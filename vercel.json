@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "backend/src/serverless.ts": {
+      "runtime": "vercel-deno@latest",
+      "includeFiles": "backend/data/**"
+    }
+  }
+}
