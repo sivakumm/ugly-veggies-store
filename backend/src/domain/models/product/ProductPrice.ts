@@ -10,12 +10,11 @@ export interface ProductPriceInput {
 type ProductPriceJsonOutput = number;
 type ProductPriceType = number;
 
-export class ProductPrice
-  extends DomainObject<
-    ProductPriceInput,
-    ProductPriceType,
-    ProductPriceJsonOutput
-  > {
+export class ProductPrice extends DomainObject<
+  ProductPriceInput,
+  ProductPriceType,
+  ProductPriceJsonOutput
+> {
   private readonly _price: ProductPriceType;
 
   private constructor(input: ProductPriceInput) {

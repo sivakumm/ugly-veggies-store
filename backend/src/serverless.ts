@@ -1,3 +1,3 @@
 import { server } from "./application.ts";
 
-server.start();
+export default server.handle;

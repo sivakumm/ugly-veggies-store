@@ -13,7 +13,11 @@ export class OakRestAdapter {
     this.application.use(this.productController.getRoutes());
   }
 
-  async start(): Promise<void> {
+  async start() {
     await this.application.listen({ port: 8000 });
+  }
+
+  handle() {
+    return this.application.handle;
   }
 }
